@@ -14,6 +14,9 @@ if (isset($_GET['action'])) {
         case 'home':
             home();
             break;
+        case'problems':
+            problems();
+            break;
         default:
             lost();
     }
