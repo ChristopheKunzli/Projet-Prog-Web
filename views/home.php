@@ -1,9 +1,9 @@
 <?php
 /**
  * @file     home.php
- * @brief    File description
+ * @brief    Home page of the site
  * @author   Created by Christophe.KUNZLI
- * @version  18.11.2022
+ * @version  30.11.2022
  */
 
 echo "<h2>Hello</h2>";

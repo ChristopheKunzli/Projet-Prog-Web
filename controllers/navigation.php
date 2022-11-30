@@ -1,7 +1,7 @@
 <?php
 /**
  * @file     navigation.php
- * @brief    File description
+ * @brief    Contains all paths to pages
  * @author   Created by Christophe.KUNZLI
  * @version  18.11.2022
  */
