@@ -12,12 +12,12 @@
 
 function home(): void
 {
-    require 'views/home.php';
+    require 'views/gabarit.php';
 }
 
 function problems(): void
 {
-    require 'views/problems.php';
+    require 'views/gabarit.php';
 }
 
 
