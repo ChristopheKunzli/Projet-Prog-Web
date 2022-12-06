@@ -11,14 +11,22 @@ require 'controllers/navigation.php';
 if (isset($_GET['action'])) {
 
     switch ($_GET['action']){
+        case 'profile':
+            profile();
+            break;
+        case 'login':
+            login();
+            break;
         case 'home':
             home();
             break;
-        case'problems':
+            case'problems':
             problems();
             break;
         default:
             lost();
+            break;
+
     }
 }else{
     home();

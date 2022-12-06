@@ -19,6 +19,16 @@ function problems(): void
 {
     require 'views/gabarit.php';
 }
-
-
+function lost(): void
+{
+    require 'views/gabarit.php';
+}
+function login(): void
+{
+    require 'views/gabarit.php';
+}
+function profile(): void
+{
+    require 'views/gabarit.php';
+}
 //===========================================================================//

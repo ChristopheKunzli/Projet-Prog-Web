@@ -53,6 +53,17 @@
     <ul class="menu">
         <li><a class="navlink" href="../index.php/?action=home">Home</a></li>
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
+        <?php
+        //if(connected){
+            echo '<li><a class="navlink" href="../index.php/?action=profile">Login</a></li>';
+        //}else{
+            echo '<li><a class="navlink" href="../index.php/?action=login">Profile</a></li>';
+        //}
+
+
+
+
+        ?>
     </ul>
 </nav>
 <?php
