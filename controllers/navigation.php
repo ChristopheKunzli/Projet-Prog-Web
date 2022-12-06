@@ -14,7 +14,6 @@ function home(): void
 {
     require 'views/gabarit.php';
 }
-
 function problems(): void
 {
     require 'views/gabarit.php';

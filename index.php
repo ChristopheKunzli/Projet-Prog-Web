@@ -7,7 +7,8 @@
  */
 
 require 'controllers/navigation.php';
-
+require 'controllers/problems.php';
+require 'controllers/users.php';
 if (isset($_GET['action'])) {
 
     switch ($_GET['action']){

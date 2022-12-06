@@ -5,6 +5,7 @@
  * @author   Created by Christophe.KUNZLI
  * @version  30.11.2022
  */
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,9 +56,9 @@
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
         //if(connected){
-            echo '<li><a class="navlink" href="../index.php/?action=profile">Login</a></li>';
+            echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
         //}else{
-            echo '<li><a class="navlink" href="../index.php/?action=login">Profile</a></li>';
+            echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
         //}
 
 
