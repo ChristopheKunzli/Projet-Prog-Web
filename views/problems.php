@@ -13,7 +13,7 @@ ob_start();
 echo "<h2>List of problems</h2>";
 
 foreach ($problemsList as $problem) {
-    echo '<p>' . $problem['name'] . ': ' . $problem['description'] . '</p>';
+    echo '<p><b style="font-size: 20px;">' . $problem['name'] . '</b>: ' . $problem['description'] . '</p>';
 }
 ?>
 
