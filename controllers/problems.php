@@ -17,3 +17,15 @@ function problemsList()
         require "views/problems.php";
     }
 }
+
+function problemX()
+{
+    try {
+        require_once "models/problemsFetch.php";
+        $problem = getProblem($_GET["id"]);
+    } catch (ModelDataBaseException $ex) {
+        $articleErrorMessage = "Nous rencontrons des problèmes technique a charger la question";
+    } finally {
+        require "views/problemX.php";
+    }
+}

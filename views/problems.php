@@ -8,12 +8,12 @@
 $title = "leakcode - problems";
 ob_start();
 ?>
+    <h2>List of problems</h2>
 
 <?php
-echo "<h2>List of problems</h2>";
 
 foreach ($problemsList as $problem) {
-    echo '<p><b style="font-size: 20px;">' . $problem['name'] . '</b>: ' . $problem['description'] . '</p>';
+    echo '<a href="../index.php/?action=problem&id='.$problem['question_id'].'">'. $problem['question_id'] .': ' . $problem['name'] . '</a><br>';
 }
 ?>
 

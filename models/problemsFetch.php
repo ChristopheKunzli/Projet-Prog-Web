@@ -6,8 +6,14 @@
  * @version 06.12.2022
  */
 function getProblemList(){
-    $problemQuery = 'SELECT name, description FROM question';
+    $problemQuery = 'SELECT question_id, name, description FROM question';
 
     require_once 'models/dbConnector.php';
     return executeQuerySelect($problemQuery);
+}
+
+function getProblem($id){
+    $query = "SELECT question_id, name, description, constraints FROM question WHERE question_id = ".$id;
+    require_once 'models/dbConnector.php';
+    return executeQuerySelect($query)[0];
 }

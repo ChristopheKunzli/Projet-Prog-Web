@@ -26,6 +26,9 @@ if (isset($_GET['action'])) {
             problemsList();
             //problems();
             break;
+        case 'problem':
+            problemX();
+            break;
         default:
             lost();
             break;
