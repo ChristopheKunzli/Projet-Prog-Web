@@ -11,7 +11,7 @@ require 'controllers/problems.php';
 require 'controllers/users.php';
 if (isset($_GET['action'])) {
 
-    switch ($_GET['action']){
+    switch ($_GET['action']) {
         case 'profile':
             profile();
             break;
@@ -21,14 +21,13 @@ if (isset($_GET['action'])) {
         case 'home':
             home();
             break;
-            case'problems':
+        case'problems':
             problems();
             break;
         default:
             lost();
             break;
-
     }
-}else{
+} else {
     home();
 }

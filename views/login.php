@@ -5,6 +5,8 @@
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 06.12.2022
  */
+$title = "leakcode - login";
+ob_start();
 ?>
 <h2>this is the login</h2>
 <form  action="index.php?action=login" method="post">
@@ -23,3 +25,7 @@
     <input type="reset" value="Annuler" >
 
 </form>
+<?php
+$content = ob_get_clean();
+require 'gabarit.php';
+?>

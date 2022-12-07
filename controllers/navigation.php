@@ -12,22 +12,26 @@
 
 function home(): void
 {
-    require 'views/gabarit.php';
+    require 'views/home.php';
 }
+
 function problems(): void
 {
-    require 'views/gabarit.php';
+    require 'views/problems.php';
 }
+
 function lost(): void
 {
     require 'views/gabarit.php';
 }
+
 function login(): void
 {
-    require 'views/gabarit.php';
+    require 'views/login.php';
 }
+
 function profile(): void
 {
-    require 'views/gabarit.php';
+    require 'views/profile.php';
 }
 //===========================================================================//

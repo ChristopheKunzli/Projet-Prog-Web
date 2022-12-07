@@ -68,8 +68,8 @@
     </ul>
 </nav>
 <?php
-require $_GET["action"] . ".php";
-
+//require $_GET["action"] . ".php";
 ?>
+<?=$content; ?>
 </body>
 </html>
