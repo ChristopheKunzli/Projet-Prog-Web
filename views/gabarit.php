@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * @file     gabarit.php
  * @brief    Skeleton of all pages on the site
@@ -55,11 +56,11 @@
         <li><a class="navlink" href="../index.php/?action=home">Home</a></li>
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
-        //if(connected){
+        if(isset($_SESSION["connected"])== true){
         echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
-        //}else{
+        }else{
         echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
-        //}
+        }
 
 
         ?>

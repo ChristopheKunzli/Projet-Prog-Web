@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file     index.php
  * @brief    Redirects to the desired page

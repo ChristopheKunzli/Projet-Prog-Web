@@ -6,16 +6,32 @@
  * @version 06.12.2022
  */
 $title = "leakcode - login";
+@$login = $_POST["username"];
+@$pass = $_POST["inputUserPswd"];
+@$valider = $_POST["login"];
+$erreur="";
+if(isset($valider)){
+    if($pass==userLogin($login)) {
+        echo "you got log";
+    $_SESSION["connected"]= true;
+    header("location:index.php?action=home");
+    }
+    else {
+        $erreur="le login et le mot de passe ne correspond pas";
+    }
+
+}
+
 ob_start();
 ?>
     <h2>this is the login</h2>
-    <form action="index.php?action=login" method="post">
+    <form action="" method="post">
         <h4>
             Connectez-vous
         </h4>
 
         <div>
-            <input type="email" name="inputEmail" placeholder="Adresse email">
+            <input type="text" name="username" placeholder="Nom d'utilisateur">
         </div>
 
         <div>
@@ -25,7 +41,13 @@ ob_start();
         <input type="reset" value="Annuler">
 
     </form>
-<?php
+<?php if(!empty($erreur)){?>
+<div id="erreur" style="background-color: #52CFEB; color: white">
+    <?=$erreur?>
+</div>
+
+
+<?php }
 $content = ob_get_clean();
 require 'gabarit.php';
 ?>
