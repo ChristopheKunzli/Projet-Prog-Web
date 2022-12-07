@@ -9,7 +9,7 @@ $title = "leakcode - home";
 ob_start();
 ?>
 
-<h2>Hello</h2>;
+    <h2>Hello</h2>
 
 <?php
 $content = ob_get_clean();

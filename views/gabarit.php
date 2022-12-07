@@ -15,7 +15,7 @@
 
 
     <style>
-        :root{
+        :root {
             /* variables storing all 5 colors chosen on mood-board */
             --color1: #4776ED;
             --color2: #3F91D4;
@@ -56,20 +56,16 @@
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
         //if(connected){
-            echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
+        echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
         //}else{
-            echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
+        echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
         //}
-
-
 
 
         ?>
     </ul>
 </nav>
-<?php
-//require $_GET["action"] . ".php";
-?>
-<?=$content; ?>
+
+<?= $content; ?>
 </body>
 </html>

@@ -8,23 +8,23 @@
 $title = "leakcode - login";
 ob_start();
 ?>
-<h2>this is the login</h2>
-<form  action="index.php?action=login" method="post">
-    <h4 >
-        Connectez-vous
-    </h4>
+    <h2>this is the login</h2>
+    <form action="index.php?action=login" method="post">
+        <h4>
+            Connectez-vous
+        </h4>
 
-    <div >
-        <input  type="email" name="inputEmail" placeholder="Adresse email">
-    </div>
+        <div>
+            <input type="email" name="inputEmail" placeholder="Adresse email">
+        </div>
 
-    <div >
-        <input  type="password" name="inputUserPswd" placeholder="Mot de passe">
-    </div>
-    <input type="submit" value="login" ><br>
-    <input type="reset" value="Annuler" >
+        <div>
+            <input type="password" name="inputUserPswd" placeholder="Mot de passe">
+        </div>
+        <input type="submit" value="login"><br>
+        <input type="reset" value="Annuler">
 
-</form>
+    </form>
 <?php
 $content = ob_get_clean();
 require 'gabarit.php';
