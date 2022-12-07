@@ -15,7 +15,7 @@ function openDBConnexion(){
     $dbName = 'leakcode';
     $userName = 'admin_leakcode';
     $userPwd = 'Pa$$w0rd';
-    $dns = $sqlDriver.'host='.$hostname.';dbname='.$dbName.';port='.$port.';charset='.$charset;
+    $dns = $sqlDriver.':host='.$hostname.';dbname='.$dbName.';port='.$port.';charset='.$charset;
 
     try{
         $tempDBConnexion = new PDO ($dns, $userName, $userPwd);

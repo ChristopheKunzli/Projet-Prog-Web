@@ -23,7 +23,8 @@ if (isset($_GET['action'])) {
             home();
             break;
         case'problems':
-            problems();
+            problemsList();
+            //problems();
             break;
         default:
             lost();
