@@ -21,30 +21,64 @@ function console_log($output, $with_script_tags = true): void
 
 console_log($problem);
 
-echo "<h2>" . $problem[0] . ". " . $problem[1] . "</h2>";
+?>
+    <style>
+        #txtCode {
+            width: 100%;
+            height: 600px;
+        }
 
-echo "<h2>Description: </h2>";
-echo "<p>" . $problem[2] . "</p>";
+        section {
+            width: 48%;
+            height: 500px;
 
-echo "<h2>Constraints: </h2>";
-echo "<p>" . $problem[3] . "</p>";
+            float: left;
+            padding: 12px;
+        }
+    </style>
 
-$i = 1;
+    <section id="problem">
+        <?php
+        echo "<h2>" . $problem[0] . ". " . $problem[1] . "</h2>";
 
-foreach ($examples as $example){
-    echo "<div class='example'>";
+        echo "<h2>Description: </h2>";
+        echo "<p>" . $problem[2] . "</p>";
 
-    echo "<h2>Example ".$i++.".</h2>";
-    echo "<p>Input: ".$example["input"]."</p>";
-    echo "<p>Output: ".$example["output"]."</p>";
-    echo "<p>Explanation: ".$example["explanation"]."</p>";
+        echo "<h2>Constraints: </h2>";
+        echo "<p>" . $problem[3] . "</p>";
 
-    if(isset($example["image"])) echo "<img src='".$example["image"]."' alt='example'>";
+        $i = 1;
 
+        foreach ($examples as $example) {
+            echo "<div class='example'>";
 
-    echo "</div>";
-}
+            echo "<h2>Example " . $i++ . ".</h2>";
+            echo "<p>Input: " . $example["input"] . "</p>";
+            echo "<p>Output: " . $example["output"] . "</p>";
+            echo "<p>Explanation: " . $example["explanation"] . "</p>";
 
+            if (isset($example["image"])) echo "<img src='" . $example["image"] . "' alt='example'>";
+
+            echo "</div>";
+        }
+        ?>
+    </section>
+    <section id="code-area">
+        <form action="" method="post" style="width: 100%">
+            <table style="width: inherit">
+                <tr style="width: inherit">
+                    <td style="width: inherit">
+                        <textarea id="txtCode" placeholder="write your code here"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="hello"></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+
+<?php
 $content = ob_get_clean();
 require 'gabarit.php';
 ?>
