@@ -1,12 +1,15 @@
 <?php
-session_start();
+
 /**
  * @file     gabarit.php
  * @brief    Skeleton of all pages on the site
  * @author   Created by Christophe.KUNZLI
  * @version  30.11.2022
  */
-
+//if(!isset($_SESSION)){
+//session_destroy();
+    session_start();
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +59,7 @@ session_start();
         <li><a class="navlink" href="../index.php/?action=home">Home</a></li>
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
-        if(isset($_SESSION["connected"])== true){
+        if($_SESSION['connected']== true){
         echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
         }else{
         echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';

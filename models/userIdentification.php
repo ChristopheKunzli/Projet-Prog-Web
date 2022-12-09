@@ -6,7 +6,7 @@
  * @version 02.12.2022
  */
 function getUserIdentification($user){
-    $userQuery = 'SELECT password FROM user WHERE username = "'.$user.'";';
+    $userQuery = 'SELECT username, password FROM user WHERE username = "'.$user.'";';
 
     require_once 'models/dbConnector.php';
     return executeQuerySelect($userQuery);

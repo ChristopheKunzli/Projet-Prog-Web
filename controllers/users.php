@@ -14,7 +14,7 @@ function userLogin($user)
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique lors de votre connection";
     } finally {
-        require "views/login.php";
+        //require "views/login.php";
 
     }
     return $userPassword;
