@@ -29,6 +29,21 @@ echo "<p>" . $problem[2] . "</p>";
 echo "<h2>Constraints: </h2>";
 echo "<p>" . $problem[3] . "</p>";
 
+$i = 1;
+
+foreach ($examples as $example){
+    echo "<div class='example'>";
+
+    echo "<h2>Example ".$i++.".</h2>";
+    echo "<p>Input: ".$example["input"]."</p>";
+    echo "<p>Output: ".$example["output"]."</p>";
+    echo "<p>Explanation: ".$example["explanation"]."</p>";
+
+    if(isset($example["image"])) echo "<img src='".$example["image"]."' alt='example'>";
+
+
+    echo "</div>";
+}
 
 $content = ob_get_clean();
 require 'gabarit.php';
