@@ -30,6 +30,9 @@ if (isset($_GET['action'])) {
         case 'problem':
             problemX();
             break;
+        case 'submit':
+            submit($_POST["txtCode"]);
+            break;
         default:
             lost();
             break;

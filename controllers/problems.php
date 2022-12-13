@@ -30,3 +30,15 @@ function problemX()
         require "views/problemX.php";
     }
 }
+
+function submit($code): void
+{
+    try {
+        require_once "models/sumbitProblem.php";
+        $output = submitCode($code);
+    } catch (ModelDataBaseException $ex) {
+        $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
+    } finally {
+        require "views/submitResult.php";
+    }
+}

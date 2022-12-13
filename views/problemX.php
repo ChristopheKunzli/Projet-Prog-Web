@@ -64,11 +64,11 @@ console_log($problem);
         ?>
     </section>
     <section id="code-area">
-        <form action="" method="post" style="width: 100%">
+        <form action="../index.php?action=submit" method="post" style="width: 100%">
             <table style="width: inherit">
                 <tr style="width: inherit">
                     <td style="width: inherit">
-                        <textarea id="txtCode" placeholder="write your code here"></textarea>
+                        <textarea id="txtCode" name="txtCode" placeholder="write your code here"></textarea>
                     </td>
                 </tr>
                 <tr>
