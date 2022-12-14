@@ -26,3 +26,9 @@ function getExamples($id): array
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }
+function getAnwer($questionid, $userid): array
+{
+    $query = "SELECT error_message, output FROM user_anwers_question WHERE question_question_id = " . $questionid." AND user_user_id = ".$userid;
+    require_once 'models/dbConnector.php';
+    return executeQuerySelect($query);
+}
