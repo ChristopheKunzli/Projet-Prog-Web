@@ -31,11 +31,11 @@ function problemX()
     }
 }
 
-function submit($code): void
+function submit($post): void
 {
     try {
         require_once "models/sumbitProblem.php";
-        $output = submitCode($code);
+        $output = submitCode($post[]);
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
     } finally {

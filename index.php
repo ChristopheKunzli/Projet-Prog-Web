@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
             problemX();
             break;
         case 'submit':
-            submit($_POST["txtCode"]);
+            submit($_POST);
             break;
         default:
             lost();

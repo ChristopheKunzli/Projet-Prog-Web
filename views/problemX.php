@@ -70,6 +70,11 @@ console_log($problem);
                     <td style="width: inherit">
                         <textarea id="txtCode" name="txtCode" placeholder="write your code here"></textarea>
                     </td>
+                    <input type="hidden" name="usrid" value="2">
+                    <?php
+                    echo '<input type="hidden" name="problemid" value="'.$problem[0].'">';
+                    ?>
+
                 </tr>
                 <tr>
                     <td><input type="submit" name="hello"></td>
