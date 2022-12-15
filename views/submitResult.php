@@ -7,4 +7,7 @@
  */
 
 echo "<h2>Result :</h2>";
-echo $output;
+foreach ($output as $put){
+
+    echo $put[1];
+}

@@ -18,7 +18,8 @@ function submitCode($code, $usertag, $questiontag): array
     $runCMD = $psPath . " " . $runScript . " 2>&1";
 
     shell_exec($runCMD);
-    return getAnwer($questiontag, $usertag);
+    $output = getAnwer($questiontag, $usertag);
+    return $output;
 
 
     //$output = shell_exec($runCMD);
