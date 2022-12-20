@@ -8,7 +8,7 @@
  */
 //if(!isset($_SESSION)){
 //session_destroy();
-    session_start();
+
 //}
 ?>
 <!DOCTYPE html>
@@ -59,8 +59,9 @@
         <li><a class="navlink" href="../index.php/?action=home">Home</a></li>
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
-        if($_SESSION['connected']== true){
+        if(isset($_SESSION['connected'])){
         echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
+            echo '<li><a class="navlink" href="../index.php/?action=deconnection">Deconnection</a></li>';
         }else{
         echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
         }

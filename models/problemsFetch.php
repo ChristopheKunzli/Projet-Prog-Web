@@ -22,13 +22,13 @@ function getProblem($id): array
 
 function getExamples($id): array
 {
-    $query = "SELECT input, output, explanation, image FROM example WHERE question_question_id = " . $id;
+    $query = "SELECT example_input, example_output, explanation, image FROM example WHERE question_question_id = " . $id;
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }
 function getAnwer($questionid, $userid): array
 {
-    $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_question_id = " . $questionid." AND user_user_id = ".$userid ;
+    $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_question_id = " . $questionid." AND user_user_id = ".$userid."ORDER BY answer_id DESC LIMIT 1" ;
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }

@@ -14,8 +14,8 @@ $trypass=userLogin($login);
 if(isset($valider)){
     if($pass==$trypass[0]['password']) {
 
-        $_SESSION["connected"]= true;
-        //header("location:index.php?action=home");
+        $_SESSION["connected"]= $trypass[0]['user_id'];
+        header("location:index.php?action=home");
     }
     else {
         $erreur="le login et le mot de passe ne correspond pas";

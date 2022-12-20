@@ -53,8 +53,8 @@ console_log($problem);
             echo "<div class='example'>";
 
             echo "<h2>Example " . $i++ . ".</h2>";
-            echo "<p>Input: " . $example["input"] . "</p>";
-            echo "<p>Output: " . $example["output"] . "</p>";
+            echo "<p>Input: " . $example["example_input"] . "</p>";
+            echo "<p>Output: " . $example["example_output"] . "</p>";
             echo "<p>Explanation: " . $example["explanation"] . "</p>";
 
             if (isset($example["image"])) echo "<img src='" . $example["image"] . "' alt='example'>";

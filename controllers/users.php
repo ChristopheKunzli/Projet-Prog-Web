@@ -9,7 +9,7 @@ function userLogin($user)
 {
     try {
         require_once "models/userIdentification.php";
-        $userPassword = getUserIdentification($user);
+        $user = getUserIdentification($user);
 
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique lors de votre connection";
@@ -17,5 +17,11 @@ function userLogin($user)
         //require "views/login.php";
 
     }
-    return $userPassword;
+    return $user;
+}
+function deconnection(){
+
+    session_destroy();
+    require "views/home.php";
+
 }

@@ -38,5 +38,14 @@ function executeQuerySelect($query){
     $dbConnection = null; // fermeture de la connexion à la DB
     return $queryResult;
 }
-
+function executeQueryInsert($query){
+    $queryResult = null;
+    $dbConnection = openDBConnexion(); // Ouvre la connexion à la BD
+    if ($dbConnection != null) {
+        $statement = $dbConnection->prepare($query);                // preparation de la requete
+        $queryResult = $statement->execute();// execution de la requete
+    }
+    $dbConnection = null; // fermeture de la connexion à la DB
+    return $queryResult;
+}
 
