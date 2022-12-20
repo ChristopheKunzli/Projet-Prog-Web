@@ -36,9 +36,14 @@ function submit($post): void
     try {
         require_once "models/sumbitProblem.php";
         $output = submitCode($post['txtCode'],$post['usrid'], $post['problemid']);
+
+        require_once "models/problemsFetch.php";
+        $problem = getProblem($_GET["problemid"]);
+        $examples = getExamples($_GET["problemid"]);
+
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
     } finally {
-        require "views/submitResult.php";
+        require "views/problemX.php";
     }
 }
