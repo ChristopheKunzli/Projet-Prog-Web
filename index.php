@@ -10,6 +10,7 @@
 require 'controllers/navigation.php';
 require 'controllers/problems.php';
 require 'controllers/users.php';
+session_start();
 
 if (isset($_GET['action'])) {
 
