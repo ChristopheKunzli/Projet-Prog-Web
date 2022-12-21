@@ -38,8 +38,8 @@ function submit($post): void
         $output = submitCode($post['txtCode'],$post['usrid'], $post['problemid']);
 
         require_once "models/problemsFetch.php";
-        $problem = getProblem($_GET["problemid"]);
-        $examples = getExamples($_GET["problemid"]);
+        $problem = getProblem($_POST["problemid"]);
+        $examples = getExamples($_POST["problemid"]);
 
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
