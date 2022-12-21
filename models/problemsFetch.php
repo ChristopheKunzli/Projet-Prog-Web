@@ -7,7 +7,7 @@
  */
 function getProblemList()
 {
-    $problemQuery = 'SELECT question_id, name, description FROM question';
+    $problemQuery = 'SELECT id, name, description FROM question WHERE is_accepted = 1';
 
     require_once 'models/dbConnector.php';
     return executeQuerySelect($problemQuery);
@@ -15,20 +15,22 @@ function getProblemList()
 
 function getProblem($id): array
 {
-    $query = "SELECT question_id, name, description, constraints FROM question WHERE question_id = " . $id;
+    $query = "SELECT id, name, description, constraints FROM question WHERE id = " . $id;
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query)[0];
 }
 
 function getExamples($id): array
 {
-    $query = "SELECT example_input, example_output, explanation, image FROM example WHERE question_question_id = " . $id;
+    $query =
+        "SELECT example.question_id, inputs.value, example.example_output, example.explanation, example.image FROM example LEFT JOIN inputs ON example.id=inputs.example_id HAVING example.question_id = " . $id;
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }
+
 function getAnwer($questionid, $userid): array
 {
-    $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_question_id = " . $questionid." AND user_user_id = ".$userid."ORDER BY answer_id DESC LIMIT 1" ;
+    $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_question_id = " . $questionid . " AND user_user_id = " . $userid . "ORDER BY answer_id DESC LIMIT 1";
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }

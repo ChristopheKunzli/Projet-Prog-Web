@@ -20,6 +20,7 @@ function console_log($output, $with_script_tags = true): void
 }
 
 console_log($problem);
+console_log($examples);
 
 ?>
     <style>
@@ -53,7 +54,7 @@ console_log($problem);
             echo "<div class='example'>";
 
             echo "<h2>Example " . $i++ . ".</h2>";
-            echo "<p>Input: " . $example["example_input"] . "</p>";
+            echo "<p>Input: " . $example["value"] . "</p>";
             echo "<p>Output: " . $example["example_output"] . "</p>";
             echo "<p>Explanation: " . $example["explanation"] . "</p>";
 
