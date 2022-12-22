@@ -15,10 +15,6 @@ function home(): void
     require 'views/home.php';
 }
 
-function problems(): void
-{
-    require 'views/problems.php';
-}
 
 function lost(): void
 {
@@ -30,8 +26,5 @@ function login(): void
     require 'views/login.php';
 }
 
-function profile(): void
-{
-    require 'views/profile.php';
-}
+
 //===========================================================================//
