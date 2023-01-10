@@ -40,7 +40,6 @@ if (isset($_GET['action'])) {
             break;
         case'problems':
             problemsList();
-            //problems();
             break;
         case 'problem':
             problemX();

@@ -24,6 +24,12 @@ function deconnection()
 {
     session_destroy();
     header("location:index.php?action=home");
-    require "views/home.php";
+    //require "views/home.php";
 
+}
+function profile(): void
+{
+    require_once "models/userIdentification.php";
+
+    require 'views/profile.php';
 }

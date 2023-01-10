@@ -11,3 +11,9 @@ function getUserIdentification($user){
     require_once 'models/dbConnector.php';
     return executeQuerySelect($userQuery);
 }
+function getUserData($user){
+    $userQuery = 'SELECT user_id, password FROM user WHERE user_id = "'.$user.'";';
+
+    require_once 'models/dbConnector.php';
+    return executeQuerySelect($userQuery);
+}

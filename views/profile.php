@@ -7,8 +7,11 @@
  */
 $title = "leakcode - profile";
 ob_start();
+
 ?>
     <h2>this is your profile</h2>
+
+
 
 <?php
 $content = ob_get_clean();
