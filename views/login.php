@@ -14,7 +14,7 @@ $trypass=userLogin($login);
 if(isset($valider)){
     if($pass==$trypass[0]['password']) {
 
-        $_SESSION["connected"]= $trypass[0]['user_id'];
+        $_SESSION["connected"]= $trypass[0]['id'];
         header("location:index.php?action=home");
     }
     else {
