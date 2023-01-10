@@ -6,13 +6,13 @@
  * @version 02.12.2022
  */
 function getUserIdentification($user){
-    $userQuery = 'SELECT user_id, password FROM user WHERE username = "'.$user.'";';
+    $userQuery = 'SELECT id, password FROM user WHERE username = "'.$user.'";';
 
     require_once 'models/dbConnector.php';
     return executeQuerySelect($userQuery);
 }
 function getUserData($user){
-    $userQuery = 'SELECT user_id, password FROM user WHERE user_id = "'.$user.'";';
+    $userQuery = 'SELECT id, password FROM user WHERE id = "'.$user.'";';
 
     require_once 'models/dbConnector.php';
     return executeQuerySelect($userQuery);
