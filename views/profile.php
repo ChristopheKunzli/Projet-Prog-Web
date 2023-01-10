@@ -10,6 +10,13 @@ ob_start();
 
 ?>
     <h2>this is your profile</h2>
+<?php
+
+$i = 1;
+foreach ($userData as $problem) {
+    echo '<a href="../index.php/?action=problem&id='.$problem['question_id'].'">'. $i++ .': ' . $problem['question_name'] .': '.$problem['difficulty'] .'</a><br>';
+}
+?>
 
 
 

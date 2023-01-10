@@ -27,9 +27,20 @@ function deconnection()
     //require "views/home.php";
 
 }
-function profile(): void
+function profile(): array
 {
-    require_once "models/userIdentification.php";
+    try {
+        require_once "models/userIdentification.php";
+        $userData = getUserData();
 
-    require 'views/profile.php';
+    } catch (ModelDataBaseException $ex) {
+        $articleErrorMessage = "Nous rencontrons des problèmes technique lors de votre connection";
+    } finally {
+        require 'views/profile.php';
+
+    }
+    return $userData;
+
+
+
 }
