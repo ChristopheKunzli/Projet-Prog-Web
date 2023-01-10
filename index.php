@@ -26,6 +26,9 @@ function console_log($output, $with_script_tags = true): void
 if (isset($_GET['action'])) {
 
     switch ($_GET['action']) {
+        case 'signin':
+            signin();
+            break;
         case 'deconnection':
             deconnection();
             break;

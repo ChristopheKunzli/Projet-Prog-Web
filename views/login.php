@@ -27,6 +27,9 @@ if(isset($valider)){
 ob_start();
 ?>
     <h2>this is the login</h2>
+    <div>
+        <a href="index.php?action=signin">signer ici</a>
+    </div>
     <form action="" method="post">
         <h4>
             Connectez-vous
@@ -44,9 +47,10 @@ ob_start();
 
     </form>
 <?php if(!empty($erreur)){?>
-<div id="erreur" style="background-color: #52CFEB; color: white">
+    <div id="erreur" style="background-color: #52CFEB; color: white">
     <?=$erreur?>
-</div>
+    </div>
+
 
 
 <?php }
