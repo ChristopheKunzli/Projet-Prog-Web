@@ -30,7 +30,7 @@ function getExamples($id): array
 
 function getAnwer($questionid, $userid): array
 {
-    $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_question_id = " . $questionid . " AND user_user_id = " . $userid . "ORDER BY answer_id DESC LIMIT 1";
+    $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_id = " . $questionid . " AND user_id = " . $userid . " ORDER BY id DESC LIMIT 1";
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }

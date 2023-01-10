@@ -20,6 +20,7 @@ function submitCode($code, $usertag, $questiontag): array
 
     shell_exec($runCMD);
     $output = getAnwer($questiontag, $usertag);
+    console_log($output);
     return $output;
 
 
