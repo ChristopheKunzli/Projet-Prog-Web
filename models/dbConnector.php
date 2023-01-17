@@ -9,7 +9,8 @@
 /**
  * @return PDO|null
  */
-function openDBConnexion(){
+function openDBConnexion()
+{
     $tempDBConnexion = null;
 
     $sqlDriver = 'mysql';
@@ -19,13 +20,12 @@ function openDBConnexion(){
     $dbName = 'leakcode';
     $userName = 'admin_leakcode';
     $userPwd = 'Pa$$w0rd';
-    $dns = $sqlDriver.':host='.$hostname.';dbname='.$dbName.';port='.$port.';charset='.$charset;
+    $dns = $sqlDriver . ':host=' . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
 
-    try{
+    try {
         $tempDBConnexion = new PDO ($dns, $userName, $userPwd);
-    }
-    catch (PDOException $exception){
-        echo 'Connexion failed'.$exception->getMessage();
+    } catch (PDOException $exception) {
+        echo 'Connexion failed' . $exception->getMessage();
     }
     return $tempDBConnexion;
 }
@@ -35,10 +35,11 @@ function openDBConnexion(){
  * @param $query
  * @return array|false|null
  */
-function executeQuerySelect($query){
+function executeQuerySelect($query)
+{
     $queryResult = null;
     $dbConnection = openDBConnexion(); // Ouvre la connexion à la BD
-    if ($dbConnection != null){
+    if ($dbConnection != null) {
         $statement = $dbConnection->prepare($query);                // preparation de la requete
         $statement->execute();                                    // execution de la requete
         $queryResult = $statement->fetchAll();                      //prépare les résultats de la requête pour le client
@@ -52,7 +53,8 @@ function executeQuerySelect($query){
  * @param $query
  * @return bool|null
  */
-function executeQueryInsert($query){
+function executeQueryInsert($query)
+{
     $queryResult = null;
     $dbConnection = openDBConnexion(); // Ouvre la connexion à la BD
     if ($dbConnection != null) {

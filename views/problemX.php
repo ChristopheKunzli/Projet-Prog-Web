@@ -59,11 +59,12 @@ console_log($examples);
             <table style="width: inherit">
                 <tr style="width: inherit">
                     <td style="width: inherit">
-                        <textarea id="txtCode" name="txtCode" placeholder="write your code here"><?php if(isset($problem["preload"])) echo $problem["preload"]; ?></textarea>
+                        <textarea id="txtCode" name="txtCode"
+                                  placeholder="write your code here"><?php if (isset($problem["preload"])) echo $problem["preload"]; ?></textarea>
                     </td>
                     <input type="hidden" name="usrid" value="2">
                     <?php
-                    echo '<input type="hidden" name="problemid" value="'.$problem[0].'">';
+                    echo '<input type="hidden" name="problemid" value="' . $problem[0] . '">';
                     ?>
 
                 </tr>

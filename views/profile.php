@@ -12,30 +12,29 @@ ob_start();
     <h2>this is your profile</h2>
     <div>
         <div>
-           username :  <?=$userData[0]['username']?>
+            username : <?= $userData[0]['username'] ?>
         </div>
         <div>
-            email :  <?=$userData[0]['email_address']?>
+            email : <?= $userData[0]['email_address'] ?>
         </div>
         <div>
-            date d'inscription :  <?=$userData[0]['registration_date']?>
+            date d'inscription : <?= $userData[0]['registration_date'] ?>
         </div>
         <div>
-            niveau :  <?=$userData[0]['rank_name']?>
+            niveau : <?= $userData[0]['rank_name'] ?>
         </div>
 
     </div>
     <div>
         <?php
 
-        if(isset($userData[0]['question_id'])){
+        if (isset($userData[0]['question_id'])) {
             $i = 1;
             foreach ($userData as $problemlist) {
-                echo '<a href="../index.php/?action=problem&id='.$problemlist['question_id'].'">'. $i++ .': ' . $problemlist['question_name'] .': '.$problemlist['difficulty'] .'</a><br>';
+                echo '<a href="../index.php/?action=problem&id=' . $problemlist['question_id'] . '">' . $i++ . ': ' . $problemlist['question_name'] . ': ' . $problemlist['difficulty'] . '</a><br>';
             }
 
-        }
-        else{
+        } else {
             ?>
             vous n'avez encore jamais essayer de resoudre un de nos problèmes
             <br>
@@ -46,8 +45,6 @@ ob_start();
         ?>
 
     </div>
-
-
 
 
 <?php

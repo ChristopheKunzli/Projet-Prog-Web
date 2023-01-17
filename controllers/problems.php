@@ -49,7 +49,7 @@ function submit($post): void
 {
     try {
         require_once "models/sumbitProblem.php";
-        $output = submitCode($post['txtCode'],$post['usrid'], $post['problemid']);
+        $output = submitCode($post['txtCode'], $post['usrid'], $post['problemid']);
 
         require_once "models/problemsFetch.php";
         $problem = getProblem($_POST["problemid"]);

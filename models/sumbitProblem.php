@@ -17,7 +17,6 @@ require 'problemsSet.php';
  */
 function submitCode($code, $usertag, $questiontag): array
 {
-    //
     addProbAnswer($usertag, $questiontag, $code);
     $psPath = "powershell.exe";
     $psDIR = "C:\\ProjetWeb\\";
@@ -29,7 +28,6 @@ function submitCode($code, $usertag, $questiontag): array
     $output = getAnwer($questiontag, $usertag);
     console_log($output);
     return $output;
-
 
     //$output = shell_exec($runCMD);
     //echo '<pre>' . $output . '</pre>';

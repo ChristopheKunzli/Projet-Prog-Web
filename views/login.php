@@ -9,16 +9,15 @@ $title = "leakcode - login";
 @$login = $_POST["username"];
 @$pass = $_POST["inputUserPswd"];
 @$valider = $_POST["login"];
-$erreur="";
-$trypass=userLogin($login);
-if(isset($valider)){
-    if($pass==$trypass[0]['password']) {
+$erreur = "";
+$trypass = userLogin($login);
+if (isset($valider)) {
+    if ($pass == $trypass[0]['password']) {
 
-        $_SESSION["connected"]= $trypass[0]['id'];
+        $_SESSION["connected"] = $trypass[0]['id'];
         header("location:index.php?action=home");
-    }
-    else {
-        $erreur="le login et le mot de passe ne correspond pas";
+    } else {
+        $erreur = "le login et le mot de passe ne correspond pas";
 
     }
 
@@ -42,15 +41,14 @@ ob_start();
         <div>
             <input type="password" name="inputUserPswd" placeholder="Mot de passe">
         </div>
-        <input type="submit"  name="login" value="login"><br>
+        <input type="submit" name="login" value="login"><br>
         <input type="reset" value="Annuler">
 
     </form>
-<?php if(!empty($erreur)){?>
+<?php if (!empty($erreur)) { ?>
     <div id="erreur" style="background-color: #52CFEB; color: white">
-    <?=$erreur?>
+        <?= $erreur ?>
     </div>
-
 
 
 <?php }

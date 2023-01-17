@@ -15,7 +15,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= $title;?></title>
+    <title><?= $title; ?></title>
 
 
     <style>
@@ -59,11 +59,11 @@
         <li><a class="navlink" href="../index.php/?action=home">Home</a></li>
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
-        if(isset($_SESSION['connected'])){
-        echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
+        if (isset($_SESSION['connected'])) {
+            echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
             echo '<li><a class="navlink" href="../index.php/?action=deconnection">Deconnection</a></li>';
-        }else{
-        echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
+        } else {
+            echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
         }
 
 

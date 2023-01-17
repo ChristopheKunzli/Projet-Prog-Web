@@ -50,8 +50,6 @@ function deconnection()
 {
     session_destroy();
     header("location:index.php?action=home");
-    //require "views/home.php";
-
 }
 
 /**

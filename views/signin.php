@@ -11,23 +11,21 @@ $title = "leakcode - login";
 @$confirmpass = $_POST["inputUserPswdconfirm"];
 @$email = $_POST["email"];
 @$valider = $_POST["sign"];
-$erreur="";
+$erreur = "";
 
 
-if(isset($valider)){
-    if($pass!=$confirmpass){
-        $erreur="les mot de passe ne correspond pas";
+if (isset($valider)) {
+    if ($pass != $confirmpass) {
+        $erreur = "les mot de passe ne correspond pas";
 
-    }
-    else{
-        $trypass=userSign($signin);
-        if(isset($trypass[0]['id'])) {
-            $erreur="l'utilisateur existe déjà";
-        }
-        else {
-            userAdd($signin,$pass,$email);
-            $newlog=userLogin($signin);
-            $_SESSION["connected"]= $newlog[0]['id'];
+    } else {
+        $trypass = userSign($signin);
+        if (isset($trypass[0]['id'])) {
+            $erreur = "l'utilisateur existe déjà";
+        } else {
+            userAdd($signin, $pass, $email);
+            $newlog = userLogin($signin);
+            $_SESSION["connected"] = $newlog[0]['id'];
             header("location:index.php?action=home");
 
         }
@@ -54,13 +52,13 @@ ob_start();
         <div>
             <input type="password" name="inputUserPswdconfirm" placeholder="confirmation de mdp">
         </div>
-        <input type="submit"  name="sign" value="sign"><br>
+        <input type="submit" name="sign" value="sign"><br>
         <input type="reset" value="Annuler">
 
     </form>
-<?php if(!empty($erreur)){?>
+<?php if (!empty($erreur)) { ?>
     <div id="erreur" style="background-color: #52CFEB; color: white">
-        <?=$erreur?>
+        <?= $erreur ?>
     </div>
     <a href="index.php?action=signin"
 

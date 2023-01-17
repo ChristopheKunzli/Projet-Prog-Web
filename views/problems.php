@@ -14,7 +14,7 @@ ob_start();
 
 $i = 1;
 foreach ($problemsList as $problem) {
-    echo '<a href="../index.php/?action=problem&id='.$problem['id'].'">'. $i++ .': ' . $problem['name'] . '</a><br>';
+    echo '<a href="../index.php/?action=problem&id=' . $problem['id'] . '">' . $i++ . ': ' . $problem['name'] . '</a><br>';
 }
 ?>
 
