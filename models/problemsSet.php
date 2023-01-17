@@ -1,7 +1,7 @@
 <?php
 /**
  * @file     problemsSet.php
- * @brief    File description
+ * @brief    Contains functions used to add answers to problems
  * @author   Created by Christophe.KUNZLI
  * @version  14.12.2022
  */

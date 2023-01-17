@@ -13,7 +13,13 @@ require 'controllers/users.php';
 
 session_start();
 
-function console_log($output, $with_script_tags = true): void
+/**
+ * Output any php variable or array to the browser's console
+ * @param $output
+ * @param bool $with_script_tags
+ * @return void
+ */
+function console_log($output, bool $with_script_tags = true): void
 {
     $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
         ');';

@@ -1,9 +1,14 @@
 <?php
 /**
  * @file problems.php
- * @brief file description
+ * @brief Manages problems
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 06.12.2022
+ */
+
+/**
+ * Show problem list page
+ * @return void
  */
 function problemsList()
 {
@@ -18,6 +23,10 @@ function problemsList()
     }
 }
 
+/**
+ * Show a specific problem's page. The page comes with a code area
+ * @return void
+ */
 function problemX()
 {
     try {
@@ -31,6 +40,11 @@ function problemX()
     }
 }
 
+/**
+ * Allows the user to submit a solution to a problem
+ * @param $post
+ * @return void
+ */
 function submit($post): void
 {
     try {

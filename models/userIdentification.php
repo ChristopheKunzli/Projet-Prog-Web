@@ -1,7 +1,7 @@
 <?php
 /**
  * @file userIdentification.php
- * @brief file description
+ * @brief Contains functions used to retrieve data about users
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 02.12.2022
  */

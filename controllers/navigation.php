@@ -25,6 +25,7 @@ function login(): void
 {
     require 'views/login.php';
 }
+
 function signin()
 {
     require 'views/signin.php';

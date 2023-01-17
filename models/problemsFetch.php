@@ -1,7 +1,7 @@
 <?php
 /**
  * @file problemsFetch.php
- * @brief file description
+ * @brief Contains functions used to retrieve data about problems
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 06.12.2022
  */

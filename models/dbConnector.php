@@ -1,9 +1,13 @@
 <?php
 /**
  * @file dbConnector.php
- * @brief file description
+ * @brief Manages connection to the database
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 02.12.2022
+ */
+
+/**
+ * @return PDO|null
  */
 function openDBConnexion(){
     $tempDBConnexion = null;
@@ -26,7 +30,11 @@ function openDBConnexion(){
     return $tempDBConnexion;
 }
 
-//function to execute query Select
+/**
+ * Function used to run a SELECT query against the database
+ * @param $query
+ * @return array|false|null
+ */
 function executeQuerySelect($query){
     $queryResult = null;
     $dbConnection = openDBConnexion(); // Ouvre la connexion à la BD
@@ -38,6 +46,12 @@ function executeQuerySelect($query){
     $dbConnection = null; // fermeture de la connexion à la DB
     return $queryResult;
 }
+
+/**
+ * Function used to run an ISNERT query against the database
+ * @param $query
+ * @return bool|null
+ */
 function executeQueryInsert($query){
     $queryResult = null;
     $dbConnection = openDBConnexion(); // Ouvre la connexion à la BD
