@@ -60,9 +60,18 @@ console_log($examples);
                 <tr style="width: inherit">
                     <td style="width: inherit">
                         <textarea id="txtCode" name="txtCode"
-                                  placeholder="write your code here"><?php if (isset($problem["preload"])) echo $problem["preload"]; ?></textarea>
+                                  placeholder="write your code here" ><?php
+                            if(isset($userLastTry[0]["code"])){
+                                echo $userLastTry[0]["code"];
+                            }else if (isset($problem["preload"])){
+                                echo $problem["preload"];
+                            }
+
+                            ?></textarea>
                     </td>
-                    <input type="hidden" name="usrid" value="2">
+                    <input type="hidden" name="usrid" value="<?php
+                    echo $_SESSION["connected"];
+                    ?>">
                     <?php
                     echo '<input type="hidden" name="problemid" value="' . $problem[0] . '">';
                     ?>

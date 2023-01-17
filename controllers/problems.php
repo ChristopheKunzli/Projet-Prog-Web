@@ -30,9 +30,13 @@ function problemsList()
 function problemX()
 {
     try {
+        if(!isset($_SESSION["connected"])){
+            header("location:index.php?action=login");
+        }
         require_once "models/problemsFetch.php";
         $problem = getProblem($_GET["id"]);
         $examples = getExamples($_GET["id"]);
+        $userLastTry = getLastTry($_GET["id"], $_SESSION["connected"]);
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique a charger la question";
     } finally {
@@ -48,6 +52,7 @@ function problemX()
 function submit($post): void
 {
     try {
+
         require_once "models/sumbitProblem.php";
         $output = submitCode($post['txtCode'], $post['usrid'], $post['problemid']);
 
@@ -58,6 +63,7 @@ function submit($post): void
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
     } finally {
+
         require "views/problemX.php";
     }
 }

@@ -15,7 +15,7 @@ function getProblemList()
 
 function getProblem($id): array
 {
-    $query = "SELECT id, name, description, constraints FROM question WHERE id = " . $id;
+    $query = "SELECT id, name, description, constraints, preload FROM question WHERE id = " . $id;
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query)[0];
 }
@@ -31,6 +31,12 @@ function getExamples($id): array
 function getAnwer($questionid, $userid): array
 {
     $query = "SELECT error_message, program_output FROM user_anwers_question WHERE question_id = " . $questionid . " AND user_id = " . $userid . " ORDER BY id DESC LIMIT 1";
+    require_once 'models/dbConnector.php';
+    return executeQuerySelect($query);
+}
+function getLastTry($questionid, $userid) : array
+{
+    $query = "SELECT code FROM user_anwers_question WHERE question_id = " . $questionid . " AND user_id = " . $userid . " ORDER BY id DESC LIMIT 1 ;";
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }
