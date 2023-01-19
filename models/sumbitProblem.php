@@ -32,6 +32,16 @@ function submitCode($code, $usertag, $questiontag): array
     //$output = shell_exec($runCMD);
     //echo '<pre>' . $output . '</pre>';
 }
+function succesfulAtempt($results,$userquestion){
+    foreach ($results as $result){
+        if($result["output"]!=$result["example_output"]){
+            return false;
+        }
+    }
+    $query = "UPDATE user_anwers_question SET succeed = 1 WHERE id = ".$userquestion." ;";
+    require_once 'models/dbConnector.php';
+    return executeQueryInsert($query);
+}
 
 
 

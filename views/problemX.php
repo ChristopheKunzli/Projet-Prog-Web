@@ -82,6 +82,61 @@ console_log($examples);
                 </tr>
             </table>
         </form>
+        <div id="result">
+            <?php if (isset($results)){
+                ?>
+                <div id="errorbutton">
+                Error
+            </div>
+
+
+            <?php
+                $j=1;
+            foreach ($results as $result) {?>
+                <div id="examplebutton<?php echo $j ?>">
+                    Exemple <?php echo $j ?>
+                </div>
+
+                <?php
+                $j++;
+            }?>
+             <div id="error">
+                 <?php
+                 if ($results[0]["error"]==null){
+                     echo "aucune erreur";
+                 }else{
+                     echo $results[0]["error"];
+                 }
+                 ?>
+             </div>
+                <?php
+                $k=1;
+                foreach ($results as $result) {?>
+                    <div id="example<?php echo $j ?>">
+                        valeur inseré :<?php echo$result["value"] ?>
+                        <br>
+                        valeur attendu :<?php echo $result["example_output"] ?>
+                        <br>
+                        valeur trouvé : <?php echo $result["output"] ?>
+
+                    </div>
+                    <?php
+                    $k++;
+                }
+            }
+            else {
+                ?>
+                <div>
+                    vous n'avez pas encore repondu
+                </div>
+                <?php
+            }
+            ?>
+
+
+        </div>
+
+
     </section>
 
 <?php

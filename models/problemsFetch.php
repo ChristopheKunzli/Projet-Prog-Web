@@ -36,7 +36,17 @@ function getAnwer($questionid, $userid): array
 }
 function getLastTry($questionid, $userid) : array
 {
-    $query = "SELECT code FROM user_anwers_question WHERE question_id = " . $questionid . " AND user_id = " . $userid . " ORDER BY id DESC LIMIT 1 ;";
+    $query = "SELECT code,id FROM user_anwers_question WHERE question_id = " . $questionid . " AND user_id = " . $userid . " ORDER BY id DESC LIMIT 1 ;";
+    require_once 'models/dbConnector.php';
+    return executeQuerySelect($query);
+}
+function getResultsTry($lasttryid)
+{
+
+    $query = "SELECT user_anwers_example.error , inputs.value , user_anwers_example.output , example.example_output FROM user_anwers_question 
+    LEFT JOIN user_anwers_example ON user_anwers_example.user_anwers_question_id= user_anwers_question.id  
+    LEFT JOIN example ON user_anwers_example.example_id= example.id 
+    LEFT JOIN inputs ON example.id=inputs.example_id Where user_anwers_question.id = ".$lasttryid.";";
     require_once 'models/dbConnector.php';
     return executeQuerySelect($query);
 }

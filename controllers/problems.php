@@ -37,6 +37,10 @@ function problemX()
         $problem = getProblem($_GET["id"]);
         $examples = getExamples($_GET["id"]);
         $userLastTry = getLastTry($_GET["id"], $_SESSION["connected"]);
+        if ($userLastTry[0]["id"]!=null){
+            $results = getResultsTry($userLastTry[0]["id"]);
+        }
+
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique a charger la question";
     } finally {
@@ -59,6 +63,12 @@ function submit($post): void
         require_once "models/problemsFetch.php";
         $problem = getProblem($_POST["problemid"]);
         $examples = getExamples($_POST["problemid"]);
+        $userLastTry = getLastTry($_POST["problemid"], $_SESSION["connected"]);
+        $results = getResultsTry($userLastTry[0]["id"]);
+        require_once "models/sumbitProblem.php";
+        $succes = succesfulAtempt($results,$userLastTry[0]["id"]);
+
+
 
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
