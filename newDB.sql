@@ -2,14 +2,12 @@
 -- Hôte:                         127.0.0.1
 -- Version du serveur:           10.9.2-MariaDB - mariadb.org binary distribution
 -- SE du serveur:                Win64
--- HeidiSQL Version:             12.1.0.6541
+-- HeidiSQL Version:             11.3.0.6295
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
@@ -19,7 +17,7 @@
 CREATE DATABASE IF NOT EXISTS `leakcode` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 USE `leakcode`;
 
--- Listage de la structure de table leakcode. difficulty
+-- Listage de la structure de la table leakcode. difficulty
 CREATE TABLE IF NOT EXISTS `difficulty` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -27,44 +25,47 @@ CREATE TABLE IF NOT EXISTS `difficulty` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table leakcode.difficulty : ~3 rows (environ)
+/*!40000 ALTER TABLE `difficulty` DISABLE KEYS */;
 INSERT INTO `difficulty` (`id`, `name`) VALUES
 	(1, 'easy'),
 	(2, 'medium'),
 	(3, 'hard');
+/*!40000 ALTER TABLE `difficulty` ENABLE KEYS */;
 
--- Listage de la structure de table leakcode. example
+-- Listage de la structure de la table leakcode. example
 CREATE TABLE IF NOT EXISTS `example` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `example_input` varchar(200) NOT NULL,
   `example_output` varchar(200) NOT NULL,
-  `explanation` varchar(500) DEFAULT NULL,
+  `explanation` varchar(500) DEFAULT ' ',
   `image` varbinary(64) DEFAULT NULL,
   `question_id` int(11) NOT NULL,
+  `powershell_input` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idexample_UNIQUE` (`id`) USING BTREE,
   KEY `fk_example_question1_idx` (`question_id`) USING BTREE,
   CONSTRAINT `fk_example_question1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table leakcode.example : ~15 rows (environ)
-INSERT INTO `example` (`id`, `example_input`, `example_output`, `explanation`, `image`, `question_id`) VALUES
-	(2, 'n = 2', '2', 'There are two ways to climb to the top.', NULL, 3),
-	(3, 'n = 3', '3', 'There are three ways to climb to the top.\r\n1. 1 step + 1 step + 1 step\r\n2. 1 step + 2 steps\r\n3. 2 steps + 1 step', NULL, 3),
-	(4, 'n = 4', '5', '', NULL, 3),
-	(5, 'n = 45', '1836311903', '', NULL, 3),
-	(6, 'num1 = "2", num2 = "3"', '"6"', '', NULL, 4),
-	(7, 'num1 = "123", num2 = "456"', '"56088"', '', NULL, 4),
-	(8, 'head = [3,2,0,-4]', 'true', 'There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).', NULL, 1),
-	(9, 'head = [1,2], pos = 0', 'true', 'There is a cycle in the linked list, where the tail connects to the 0th node.', NULL, 1),
-	(10, 'head = [1], pos = -1', 'false', 'There is no cycle in the linked list.', NULL, 1),
-	(11, ' [[1,4,5],[1,3,4],[2,6]]', '[1,1,2,3,4,4,5,6]', '', NULL, 5),
-	(12, ' []', '[]', '', NULL, 5),
-	(13, '[[]]', '[]', '', NULL, 5),
-	(14, 's = "aa", p = "a"', 'false', '"a" does not match the entire string "aa".', NULL, 2),
-	(15, 's = "aa", p = "a*"', 'true', '"*" means zero or more of the preceding element, "a". Therefore, by repeating "a" once, it becomes "aa".', NULL, 2),
-	(16, 's = "ab", p = ".*"', 'true', '".*" means "zero or more (*) of any character (.)".', NULL, 2);
+-- Listage des données de la table leakcode.example : ~7 rows (environ)
+/*!40000 ALTER TABLE `example` DISABLE KEYS */;
+INSERT INTO `example` (`id`, `example_input`, `example_output`, `explanation`, `image`, `question_id`, `powershell_input`) VALUES
+	(2, 'n = 2', '2', 'There are two ways to climb to the top.', NULL, 3, 2),
+	(3, 'n = 3', '3', 'There are three ways to climb to the top.\r\n1. 1 step + 1 step + 1 step\r\n2. 1 step + 2 steps\r\n3. 2 steps + 1 step', NULL, 3, 3),
+	(4, 'n = 4', '5', '', NULL, 3, 4),
+	(5, 'n = 45', '1836311903', '', NULL, 3, 45),
+	(17, 'no input', 'Hello Word', 'Says Hello Word', NULL, 6, 5),
+	(18, 'n = 99', '9', '9+9 =18\r\n1+8 = 9 \r\nand there\'s only one digit so 9', NULL, 9, 99),
+	(19, 'n = 165', '3', '1+6+5 = 12\r\n1+2= 3', NULL, 9, 165),
+	(20, 'n = 721', '1', ' ', NULL, 9, 721),
+	(21, 'n = 123', '3', 'The highest digit is 3', NULL, 8, 123),
+	(22, 'n = 991', '9', 'the  highest digit is 9', NULL, 8, 991),
+	(23, 'n = 1000', '4', 'there\'s 4 digits', NULL, 7, 1000),
+	(24, 'n = 7', '1', 'there\'s 1 digit', NULL, 7, 7),
+	(25, '721', '3', ' ', NULL, 7, 721);
+/*!40000 ALTER TABLE `example` ENABLE KEYS */;
 
--- Listage de la structure de table leakcode. inputs
+-- Listage de la structure de la table leakcode. inputs
 CREATE TABLE IF NOT EXISTS `inputs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` int(11) NOT NULL,
@@ -72,16 +73,27 @@ CREATE TABLE IF NOT EXISTS `inputs` (
   PRIMARY KEY (`id`),
   KEY `FK_example` (`example_id`),
   CONSTRAINT `FK_example` FOREIGN KEY (`example_id`) REFERENCES `example` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table leakcode.inputs : ~4 rows (environ)
+-- Listage des données de la table leakcode.inputs : ~5 rows (environ)
+/*!40000 ALTER TABLE `inputs` DISABLE KEYS */;
 INSERT INTO `inputs` (`id`, `value`, `example_id`) VALUES
 	(1, 2, 2),
 	(2, 3, 3),
 	(3, 4, 4),
-	(4, 45, 5);
+	(4, 45, 5),
+	(5, 1, 17),
+	(6, 99, 18),
+	(7, 165, 19),
+	(8, 721, 20),
+	(9, 123, 21),
+	(10, 991, 22),
+	(11, 1000, 23),
+	(12, 7, 24),
+	(13, 721, 25);
+/*!40000 ALTER TABLE `inputs` ENABLE KEYS */;
 
--- Listage de la structure de table leakcode. question
+-- Listage de la structure de la table leakcode. question
 CREATE TABLE IF NOT EXISTS `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -91,6 +103,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `creation_date` date NOT NULL,
   `is_accepted` tinyint(2) NOT NULL,
   `Difficulty_id` int(11) NOT NULL,
+  `preload` varchar(500) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `idquestions_UNIQUE` (`id`) USING BTREE,
@@ -98,17 +111,19 @@ CREATE TABLE IF NOT EXISTS `question` (
   KEY `fk_question_Difficulty1_idx` (`Difficulty_id`) USING BTREE,
   CONSTRAINT `fk_question_Difficulty1` FOREIGN KEY (`Difficulty_id`) REFERENCES `difficulty` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_question_user1` FOREIGN KEY (`author_user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table leakcode.question : ~5 rows (environ)
-INSERT INTO `question` (`id`, `name`, `description`, `constraints`, `author_user_id`, `creation_date`, `is_accepted`, `Difficulty_id`) VALUES
-	(1, 'Linked List Cycle', 'Given head, the head of a linked list, determine if the linked list has a cycle in it.\r\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail\'s next pointer is connected to. Note that pos is not passed as a parameter.\r\nReturn true if there is a cycle in the linked list. Otherwise, return false.', 'The number of the nodes in the list is in the range [0, 104].\r\n-105 <= Node.val <= 105\r\npos is -1 or a valid index in the linked-list.', 1, '2022-11-29', 0, 1),
-	(2, 'Regular Expression Matching', 'Given an input string s and a pattern p, implement regular expression matching with support for \'.\' and \'*\' where:\r\n\'.\' Matches any single character.​​​​\r\n\'*\' Matches zero or more of the preceding element.\r\nThe matching should cover the entire input string (not partial).', '1 <= s.length <= 20\r\n1 <= p.length <= 30\r\ns contains only lowercase English letters.\r\np contains only lowercase English letters, \'.\', and \'*\'.\r\nIt is guaranteed for each appearance of the character \'*\', there will be a previous valid character to match.', 2, '2022-11-30', 0, 3),
-	(3, 'Climbing Stairs', 'You are climbing a staircase. It takes n steps to reach the top.\r\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?', '1 <= n <= 45', 1, '2022-12-05', 1, 1),
-	(4, 'Multiply Strings', 'Given two integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.', '1 <= num1.length, num2.length <= 200,\r\nnum1 and num2 consist of digits only.\r\nBoth num1 and num2 do not contain any leading zero except the number 0 itself.', 3, '2022-12-06', 0, 2),
-	(5, 'Merge k Sorted Lists', 'You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.', 'k == lists.length\r\n0 <= k <= 104\r\n0 <= lists[i].length <= 500\r\n-104 <= lists[i][j] <= 104\r\nlists[i] is sorted in ascending order.\r\nThe sum of lists[i].length will not exceed 104.', 1, '2022-12-06', 0, 3);
+/*!40000 ALTER TABLE `question` DISABLE KEYS */;
+INSERT INTO `question` (`id`, `name`, `description`, `constraints`, `author_user_id`, `creation_date`, `is_accepted`, `Difficulty_id`, `preload`) VALUES
+	(3, 'Climbing Stairs', 'You are climbing a staircase. It takes n steps to reach the top.\r\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?', '1 <= n <= 45', 1, '2022-12-05', 1, 2, 'public class Main{\r\npublic static void main(String[] args) {\r\n//dont touch this section\r\nint myvar = "exemple input";\r\n//\r\n}\r\n}'),
+	(6, 'Hello Word', 'Try to print the sentence hello word', 'none ', 1, '2023-01-19', 1, 1, 'public class Main{\r\npublic static void main(String[] args) {\r\n//dont touch this section\r\nint myvar = "exemple input";\r\n//\r\n}\r\n}'),
+	(7, 'Number Length', 'Find out the number Length', '1<=n<=10000', 2, '2023-01-20', 1, 1, 'public class Main{\r\npublic static void main(String[] args) {\r\n//dont touch this section\r\nint myvar = "exemple input";\r\n//\r\n}\r\n}'),
+	(8, 'Find the Highest', 'Find the Highest digit of a given number', '1<=n <=999', 2, '2023-01-20', 1, 2, 'public class Main{\r\npublic static void main(String[] args) {\r\n//dont touch this section\r\nint myvar = "exemple input";\r\n//\r\n}\r\n}'),
+	(9, 'Add Digits', 'Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.', '1<=n<=400', 3, '2023-01-20', 1, 3, 'public class Main{\r\npublic static void main(String[] args) {\r\n//dont touch this section\r\nint myvar = "exemple input";\r\n//\r\n}\r\n}');
+/*!40000 ALTER TABLE `question` ENABLE KEYS */;
 
--- Listage de la structure de table leakcode. rank
+-- Listage de la structure de la table leakcode. rank
 CREATE TABLE IF NOT EXISTS `rank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rank_name` varchar(45) NOT NULL,
@@ -117,12 +132,14 @@ CREATE TABLE IF NOT EXISTS `rank` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table leakcode.rank : ~3 rows (environ)
+/*!40000 ALTER TABLE `rank` DISABLE KEYS */;
 INSERT INTO `rank` (`id`, `rank_name`) VALUES
 	(1, 'beginner'),
 	(2, 'experienced'),
 	(3, 'pro');
+/*!40000 ALTER TABLE `rank` ENABLE KEYS */;
 
--- Listage de la structure de table leakcode. user
+-- Listage de la structure de la table leakcode. user
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
@@ -134,46 +151,54 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `username_UNIQUE` (`username`),
   KEY `FK_user_rank` (`rank_id`) USING BTREE,
   CONSTRAINT `FK_user_rank` FOREIGN KEY (`rank_id`) REFERENCES `rank` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table leakcode.user : ~3 rows (environ)
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `email_address`, `password`, `registration_date`, `rank_id`) VALUES
 	(1, 'chri', 'Christophe.kunzli@cpnv.ch', 'Pa$$w0rd', '2022-11-29', 2),
 	(2, 'blo', 'Pablo-Fernando.ZUBIETA-RODRIGUEZ@cpnv.ch', 'Pa$$w0rd', '2022-11-28', 3),
 	(3, 'jcl', 'Jean.Claude@cpnv.ch', 'jcl', '2022-12-06', 1);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
--- Listage de la structure de table leakcode. user_anwers_question
+-- Listage de la structure de la table leakcode. user_anwers_example
+CREATE TABLE IF NOT EXISTS `user_anwers_example` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_anwers_question_id` int(11) NOT NULL DEFAULT 0,
+  `example_id` int(11) NOT NULL DEFAULT 0,
+  `error` varchar(600) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `output` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK__user_anwers_question` (`user_anwers_question_id`),
+  KEY `FK__example` (`example_id`),
+  CONSTRAINT `FK__example` FOREIGN KEY (`example_id`) REFERENCES `example` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK__user_anwers_question` FOREIGN KEY (`user_anwers_question_id`) REFERENCES `user_anwers_question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table leakcode.user_anwers_example : ~0 rows (environ)
+/*!40000 ALTER TABLE `user_anwers_example` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_anwers_example` ENABLE KEYS */;
+
+-- Listage de la structure de la table leakcode. user_anwers_question
 CREATE TABLE IF NOT EXISTS `user_anwers_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
-  `code` varchar(1000) NOT NULL,
+  `code` varchar(2000) NOT NULL,
   `answer_date` date NOT NULL,
   `succeed` tinyint(4) DEFAULT 0,
-  `error_message` varchar(600) DEFAULT NULL,
-  `program_output` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `fk_user_has_question_question1_idx` (`question_id`) USING BTREE,
   KEY `fk_user_has_question_user1_idx` (`user_id`) USING BTREE,
   CONSTRAINT `fk_user_has_question_question1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_question_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table leakcode.user_anwers_question : ~7 rows (environ)
-INSERT INTO `user_anwers_question` (`id`, `user_id`, `question_id`, `code`, `answer_date`, `succeed`, `error_message`, `program_output`) VALUES
-	(1, 1, 1, 'public class Main{public static void main(String[] args) {System.out.println("Hello, World!"); }}', '2022-11-29', 1, '', 'Hello, World!'),
-	(21, 2, 1, 'hfhghmgh', '2022-12-21', 0, NULL, NULL),
-	(22, 2, 1, 'public class Main{public static void main(String[] args) {System.out.println("Hello, World!"); }}', '2022-12-21', 0, NULL, NULL),
-	(23, 2, 1, '$_POST', '2022-12-21', 0, NULL, NULL),
-	(24, 2, 1, '$_POST', '2022-12-21', 0, NULL, NULL),
-	(25, 2, 1, '$_POST', '2022-12-21', 0, NULL, NULL),
-	(26, 2, 1, '$_POST', '2022-12-21', 0, NULL, NULL);
+-- Listage des données de la table leakcode.user_anwers_question : ~0 rows (environ)
+/*!40000 ALTER TABLE `user_anwers_question` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_anwers_question` ENABLE KEYS */;
 
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
-
-CREATE USER admin_leakcode@localhost IDENTIFIED BY 'Pa$$w0rd';
-GRANT ALL PRIVILEGES ON leakcode.* TO admin_leakcode@localhost;

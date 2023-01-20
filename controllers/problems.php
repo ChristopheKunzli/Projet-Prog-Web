@@ -37,7 +37,7 @@ function problemX()
         $problem = getProblem($_GET["id"]);
         $examples = getExamples($_GET["id"]);
         $userLastTry = getLastTry($_GET["id"], $_SESSION["connected"]);
-        if ($userLastTry[0]["id"]!=null){
+        if (isset($userLastTry[0]["id"])){
             $results = getResultsTry($userLastTry[0]["id"]);
         }
 
