@@ -59,6 +59,9 @@ function deconnection()
 function profile(): array
 {
     try {
+        if(!isset($_SESSION["connected"])){
+            header("location:index.php?action=login");
+        }
         require_once "models/userIdentification.php";
         $userData = getUserData();
 

@@ -15,7 +15,7 @@ require 'problemsSet.php';
  * @param $questiontag
  * @return array
  */
-function submitCode($code, $usertag, $questiontag): array
+function submitCode($code, $usertag, $questiontag): void
 {
     addProbAnswer($usertag, $questiontag, $code);
     $psPath = "powershell.exe";
@@ -25,9 +25,7 @@ function submitCode($code, $usertag, $questiontag): array
     $runCMD = $psPath . " " . $runScript . " 2>&1";
 
     shell_exec($runCMD);
-    $output = getAnwer($questiontag, $usertag);
-    console_log($output);
-    return $output;
+
 
     //$output = shell_exec($runCMD);
     //echo '<pre>' . $output . '</pre>';

@@ -56,9 +56,11 @@ function problemX()
 function submit($post): void
 {
     try {
-
+        if(!isset($_SESSION["connected"])){
+            header("location:index.php?action=login");
+        }
         require_once "models/sumbitProblem.php";
-        $output = submitCode($post['txtCode'], $post['usrid'], $post['problemid']);
+        submitCode($post['txtCode'], $post['usrid'], $post['problemid']);
 
         require_once "models/problemsFetch.php";
         $problem = getProblem($_POST["problemid"]);
