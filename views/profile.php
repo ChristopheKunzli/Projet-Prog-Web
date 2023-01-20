@@ -1,7 +1,7 @@
 <?php
 /**
  * @file profile.php
- * @brief file description
+ * @brief Show the user's profile information and attempted problems
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 06.12.2022
  */

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file     submitResult.php
- * @brief    File description
+ * @brief    Unused file
  * @author   Created by Christophe.KUNZLI
  * @version  13.12.2022
  */
