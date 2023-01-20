@@ -16,7 +16,8 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title; ?></title>
-
+    <link rel="stylesheet" type="text/css" href="views/content/css/main.css">
+    <script src="views/content/js/main.js"></script>
 
     <style>
         :root {
