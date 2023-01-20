@@ -5,3 +5,28 @@ Last change:  -
 Assigned to:  Pablo Zubieta ,Christophe Kunsli
 Primary use:  Apprendre enfin je crois
 -------------------------------------------------------------------*/
+h2{
+    text-align: center;
+    color: #0a53be;
+}
+.centerp{
+font-size: larger;
+    text-align: center;
+    color: #3F91D4;
+}
+.leftp{
+    text-align: left;
+background-color: #4776ED;
+    color: #49F5B3;
+}
+.rightp{
+    text-align: right;
+background-color: #49F5B3;
+    color: #4776ED;
+}
+.littlep{
+font-size: xx-small;
+}
+.halfpage{
+
+}

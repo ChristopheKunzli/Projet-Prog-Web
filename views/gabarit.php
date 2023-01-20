@@ -1,11 +1,11 @@
 <?php
-
 /**
  * @file     gabarit.php
  * @brief    Skeleton of all pages on the site
  * @author   Created by Christophe.KUNZLI
  * @version  30.11.2022
  */
+
 //if(!isset($_SESSION)){
 //session_destroy();
 
@@ -16,8 +16,9 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title; ?></title>
-    <link rel="stylesheet" type="text/css" href="views/content/css/main.css">
-    <script src="views/content/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../views/content/css/main.css">
+    <link rel="stylesheet" href="../views/content/css/bootstrap.min.css">
+    <script src="../views/content/js/main.js"></script>
 
     <style>
         :root {
