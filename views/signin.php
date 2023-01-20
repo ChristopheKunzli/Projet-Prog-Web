@@ -1,7 +1,7 @@
 <?php
 /**
  * @file signin.php
- * @brief file description
+ * @brief Allow users to create a new account
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 10.01.2023
  */

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file login.php
- * @brief file description
+ * @brief Users can use this page to login to their account
  * @author Created by Pablo-Fernando.ZUBIE
  * @version 06.12.2022
  */
