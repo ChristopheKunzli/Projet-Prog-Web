@@ -7,7 +7,7 @@
  */
 function getProblemList()
 {
-    $problemQuery = 'SELECT id, name, description FROM question WHERE is_accepted = 1';
+    $problemQuery = 'SELECT id, name, Difficulty_id FROM question WHERE is_accepted = 1';
 
     require_once 'models/dbConnector.php';
     return executeQuerySelect($problemQuery);

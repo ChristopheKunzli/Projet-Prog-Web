@@ -4,10 +4,22 @@ Version:  1.0
 Last change:  -
 Assigned to:  Pablo Zubieta ,Christophe Kunsli
 Primary use:  Apprendre enfin je crois
+#52cfeb
+#49f5b3
+#3f91d4
+#3fd4c7
+#4776ed
+
 -------------------------------------------------------------------*/
+
+
 h2{
     text-align: center;
-    color: #0a53be;
+    color: #4776ED;
+}
+h3{
+    color: #49F5B3;
+    font-size: large;
 }
 .centerp{
 font-size: larger;
@@ -27,6 +39,14 @@ background-color: #49F5B3;
 .littlep{
 font-size: xx-small;
 }
-.halfpage{
+.halfpagel{
+    width: 50%;
+    float: left;
+
+
+}
+.halfpager{
+    width: 50%;
+    float: right;
 
 }

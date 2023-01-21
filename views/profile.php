@@ -10,41 +10,77 @@ ob_start();
 
 ?>
     <h2>this is your profile</h2>
-    <div>
-        <div>
-            username : <?= $userData[0]['username'] ?>
+<br>
+    <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-lg-6 col-md-6 col-sm-12">
+                <h3> Information
+                </h3>
+                <table>
+                    <tr>
+                        <td>
+                            username
+                        </td>
+                        <td style="text-align: right">
+                            <?= $userData[0]['username'] ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            email
+                        </td>
+                        <td style="text-align: right">
+                            <?= $userData[0]['email_address'] ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            date d'inscription
+                        </td>
+                        <td style="text-align: right">
+                            <?= $userData[0]['registration_date'] ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            niveau
+                        </td>
+                        <td style="text-align: right">
+                            <?= $userData[0]['rank_name'] ?>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class=" col-lg-6  col-md-6 col-sm-12">
+                <h3> Problème résolu
+                </h3>
+                <?php
+
+                if (isset($userData[0]['question_id'])) {
+                    $i = 1;
+                    foreach ($userData as $problemlist) {
+                        echo '<a href="../index.php/?action=problem&id=' . $problemlist['question_id'] . '">' . $i++ . ': ' . $problemlist['question_name'] . ': ' . $problemlist['difficulty'] . '</a><br>';
+                    }
+
+                } else {
+                    ?>
+                    vous n'avez encore jamais essayer de resoudre un de nos problèmes
+                    <br>
+                    <br>
+
+                    <?php
+                }
+                ?>
+
+            </div>
+
         </div>
-        <div>
-            email : <?= $userData[0]['email_address'] ?>
-        </div>
-        <div>
-            date d'inscription : <?= $userData[0]['registration_date'] ?>
-        </div>
-        <div>
-            niveau : <?= $userData[0]['rank_name'] ?>
-        </div>
 
-    </div>
-    <div>
-        <?php
+    </body>
 
-        if (isset($userData[0]['question_id'])) {
-            $i = 1;
-            foreach ($userData as $problemlist) {
-                echo '<a href="../index.php/?action=problem&id=' . $problemlist['question_id'] . '">' . $i++ . ': ' . $problemlist['question_name'] . ': ' . $problemlist['difficulty'] . '</a><br>';
-            }
 
-        } else {
-            ?>
-            vous n'avez encore jamais essayer de resoudre un de nos problèmes
-            <br>
-            <br>
-
-            <?php
-        }
-        ?>
-
-    </div>
 
 
 <?php

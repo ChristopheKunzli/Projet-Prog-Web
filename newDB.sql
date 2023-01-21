@@ -15,7 +15,11 @@
 
 -- Listage de la structure de la base pour leakcode
 CREATE DATABASE IF NOT EXISTS `leakcode` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+use mysql;
+CREATE USER 'admin_leakcode'@'localhost' identified by 'Pa$$w0rd';
+
 USE `leakcode`;
+GRANT ALL PRIVILEGES ON leakcode TO 'admin_leakcode'@'localhost';
 
 -- Listage de la structure de la table leakcode. difficulty
 CREATE TABLE IF NOT EXISTS `difficulty` (
@@ -202,3 +206,4 @@ CREATE TABLE IF NOT EXISTS `user_anwers_question` (
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
