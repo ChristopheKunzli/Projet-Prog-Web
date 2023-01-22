@@ -72,6 +72,7 @@ function submit($post): void
 
 
 
+
     } catch (ModelDataBaseException $ex) {
         $articleErrorMessage = "Nous rencontrons des problèmes technique à rendre votre code";
     } finally {

@@ -36,6 +36,8 @@ function succesfulAtempt($results,$userquestion){
             return false;
         }
     }
+    require_once 'views/content/js/main.js';
+
     $query = "UPDATE user_anwers_question SET succeed = 1 WHERE id = ".$userquestion." ;";
     require_once 'models/dbConnector.php';
     return executeQueryInsert($query);

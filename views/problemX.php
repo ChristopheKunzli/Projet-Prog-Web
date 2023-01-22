@@ -122,7 +122,7 @@ console_log($examples);
                     <?php
                     $j=1;
                     foreach ($results as $result) {?>
-                        <button  class="btn btn-outline-primary" id="examplebutton<?php echo $j ?>" onclick="hideexemple(<?php echo $j ?>)" style=" <?php
+                        <button  class="btn btn-outline-primary" id="examplebutton<?php echo $j ?>"   onclick="hideexemple(<?php echo $j ?>)" style=" <?php
                         if($result["example_output"]==$result["output"] ){
                             ?>
                                  color: darkgreen
@@ -195,7 +195,13 @@ console_log($examples);
 </div>
 
 
+
 <?php
+if($succes[0]){
+    echo"<script>
+    reussite();
+</script>";
+}
 $content = ob_get_clean();
 require 'gabarit.php';
 ?>
