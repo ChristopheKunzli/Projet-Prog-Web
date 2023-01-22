@@ -197,7 +197,7 @@ console_log($examples);
 
 
 <?php
-if($succes[0]){
+if(isset($succes)&&$succes[0]){
     echo"<script>
     reussite();
 </script>";
