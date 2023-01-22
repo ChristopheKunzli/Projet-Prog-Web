@@ -34,35 +34,45 @@ if (isset($valider)) {
 }
 ob_start();
 ?>
-    <h2>this is the login</h2>
+    <h2>this is the signin</h2>
+    <div class="container mt-3">
+    <h4>
+        inscrivez vous
+    </h4>
+
     <form action="" method="post">
-        <h4>
-            inscrivez vous
-        </h4>
-
-        <div>
-            <input type="text" name="username" placeholder="Nom d'utilisateur">
-        </div>
-        <div>
-            <input type="email" name="email" placeholder="email">
-        </div>
-        <div>
-            <input type="password" name="inputUserPswd" placeholder="Mot de passe">
-        </div>
-        <div>
-            <input type="password" name="inputUserPswdconfirm" placeholder="confirmation de mdp">
-        </div>
-        <input type="submit" name="sign" value="sign"><br>
-        <input type="reset" value="Annuler">
-
-    </form>
+    <div class="mb-3 mt-3">
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" class="form-control" name="username" placeholder="Nom d'utilisateur">
+    </div>
+    <div class="mb-3">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" name="email" placeholder="email">
+    </div>
+    <div class="mb-3">
+        <label for="inputUserPswd">Mot de passe:</label>
+        <input type="password" class="form-control" name="inputUserPswd" placeholder="Mot de passe">
+    </div>
+    <div class="mb-3">
+        <label for="inputUserPswdconfirm">Comfirmer le mot de passe:</label>
+        <input type="password" class="form-control" name="inputUserPswdconfirm" placeholder="confirmation de mdp">
+    </div>
 <?php if (!empty($erreur)) { ?>
-    <div id="erreur" style="background-color: #52CFEB; color: white">
+    <div id="erreur" style="background-color: #52CFEB; color: white" class="mb-3">
         <?= $erreur ?>
     </div>
-    <a href="index.php?action=signin"
+        <?php }?>
 
-<?php }
+    <button type="submit" name="sign" class="btn btn-primary">signin</button>
+    <button type="reset" class="btn btn-primary" >Annuler </button>
+
+    </form>
+
+    </div>
+
+
+
+<?php
 $content = ob_get_clean();
 require 'gabarit.php';
 ?>

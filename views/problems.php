@@ -12,45 +12,46 @@ ob_start();
 
 <?php
 ?>
-    <table class="table">
+    <table class="table-hover table">
         <thead>
         <tr>
-            <th></th>
-            <th>Nom</th>
-            <th>Difficulté</th>
+            <th class="col-1"></th>
+            <th class="col-5">Nom</th>
+            <th class="col-5">Difficulté</th>
         </tr>
         </thead>
+        <tbody>
+        <?php
+        $i = 1;
+        foreach ($problemsList as $problem) {
+            ?>
 
+            <tr  onclick="redirect(<?=$problem['id']?>)" >
 
-<?php
-$i = 1;
-foreach ($problemsList as $problem) {
-    ?>
+                <td ><?= $i++ ?>:</td>
+                <td ><?= $problem['name'] ?></td>
+                <td ><?php
+                    switch($problem['Difficulty_id']){
+                        case 1:
+                            echo "facile";
+                            break;
+                        case 2:
+                            echo "moyen";
+                            break;
+                        case 3:
+                            echo "difficile";
+                            break;
 
-    <tr class="link-primary" href="../index.php/?action=problem&id=<?= $problem['id'] ?>">
+                    }
+                    ?></td>
 
-        <td ><?= $i++ ?></td>
-        <td href="../index.php/?action=problem&id=<?= $problem['id'] ?>"><?= $problem['name'] ?></td>
-        <td href="../index.php/?action=problem&id=<?= $problem['id'] ?>"><?php
-        switch($problem['Difficulty_id']){
-            case 1:
-                echo "facile";
-                break;
-            case 2:
-                echo "moyen";
-                break;
-            case 3:
-                echo "difficile";
-                break;
-
+            </tr>
+            <?php
+            // echo '<a href="../index.php/?action=problem&id=' . $problem['id'] . '">' . $i++ . ': ' . $problem['name'] . '<br>';
         }
-            ?></td>
+        ?>
 
-    </tr>
-    <?php
-   // echo '<a href="../index.php/?action=problem&id=' . $problem['id'] . '">' . $i++ . ': ' . $problem['name'] . '<br>';
-}
-?>
+        </tbody>
 
     </table>
 

@@ -57,13 +57,15 @@
 </head>
 <body>
 <nav>
+
     <ul class="menu">
+        <li> <img class="navbar-brand " src="../views/content/images/Logo.png" alt="Avatar Logo" style="width:50px;background-color: oldlace; border-radius: 100%;" ></li>
         <li><a class="navlink" href="../index.php/?action=home">Home</a></li>
         <li><a class="navlink" href="../index.php/?action=problems">Problems</a></li>
         <?php
         if (isset($_SESSION['connected'])) {
             echo '<li><a class="navlink" href="../index.php/?action=profile">Profile</a></li>';
-            echo '<li><a class="navlink" href="../index.php/?action=deconnection">Deconnection</a></li>';
+            echo '<li><a class="navlink" href="../index.php/?action=deconnection">Deconnexion</a></li>';
         } else {
             echo '<li><a class="navlink" href="../index.php/?action=login">Login</a></li>';
         }

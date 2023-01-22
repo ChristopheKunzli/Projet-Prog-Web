@@ -32,7 +32,7 @@ function getUserIdentification($user)
 
 function getUserData()
 {
-    $userQuery = 'SELECT DISTINCT user.username, user.email_address, user.registration_date, rank.rank_name, question.id AS question_id ,question.name AS question_name, difficulty.name AS difficulty, user_anwers_question.succeed
+    $userQuery = 'SELECT DISTINCT user.username, user.email_address, user.registration_date, rank.rank_name, question.id AS question_id ,question.name AS question_name, difficulty.name AS difficulty, user_anwers_question.succeed As succeed
 FROM user 
 INNER JOIN rank ON user.rank_id=rank.id 
 LEFT JOIN user_anwers_question ON user.id = user_anwers_question.user_id

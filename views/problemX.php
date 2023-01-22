@@ -111,27 +111,38 @@ console_log($examples);
                     </tr>
                 </table>
             </form>
-            <div id="result">
+            <div class="container mt-3" id="result">
                 <?php if (isset($results)){
                     ?>
-                    <div id="errorbutton">
+                    <button class="btn btn-outline-primary" id="errorbutton" onclick="hideexemple(0)">
                         Error
-                    </div>
+                    </button>
 
 
                     <?php
                     $j=1;
                     foreach ($results as $result) {?>
-                        <div id="examplebutton<?php echo $j ?>">
+                        <button  class="btn btn-outline-primary" id="examplebutton<?php echo $j ?>" onclick="hideexemple(<?php echo $j ?>)" style=" <?php
+                        if($result["example_output"]==$result["output"] ){
+                            ?>
+                                 color: darkgreen
+                            <?php
+                        }else
+                        {
+                            ?>
+                                color: red
+                                <?php
+                            }
+                        ?> ">
                             Exemple <?php echo $j ?>
-                        </div>
+                        </button>
 
                         <?php
                         $j++;
                     }?>
-                    <div id="error">
+                    <div class="exemple" id="example0" >
                         <?php
-                        if ($results[0]["error"]==null){
+                        if (isset($results[0]["error"])){
                             echo "aucune erreur";
                         }else{
                             echo $results[0]["error"];
@@ -141,12 +152,25 @@ console_log($examples);
                     <?php
                     $k=1;
                     foreach ($results as $result) {?>
-                        <div id="example<?php echo $j ?>">
-                            valeur inseré :<?php echo$result["value"] ?>
-                            <br>
-                            valeur attendu :<?php echo $result["example_output"] ?>
-                            <br>
-                            valeur trouvé : <?php echo $result["output"] ?>
+                        <div class="container-fluid exemple mt-3 border-3" id="example<?php echo $k ?>">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>
+                                        valeur inseré :<?php echo$result["value"] ?>
+                                    </p>
+                                </div>
+                                <div class="col-6">
+
+                                    <div >
+                                        <p>valeur attendu :<?php echo $result["example_output"] ?></p>
+                                    </div>
+                                    <div>
+                                        <p>valeur trouvé : <?php echo $result["output"] ?></p>
+                                    </div>
+
+
+                                </div>
+                            </div>
 
                         </div>
                         <?php

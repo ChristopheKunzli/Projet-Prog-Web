@@ -59,11 +59,52 @@ ob_start();
                 <?php
 
                 if (isset($userData[0]['question_id'])) {
-                    $i = 1;
+                    $i = 1;?>
+                    <table class="table-hover table">
+                        <thead>
+                        <tr>
+                            <th class="col-1"></th>
+                            <th class="col-5">Nom</th>
+                            <th class="col-5">Difficulté</th>
+                            <th class="col-1">Reussi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    <?php
                     foreach ($userData as $problemlist) {
-                        echo '<a href="../index.php/?action=problem&id=' . $problemlist['question_id'] . '">' . $i++ . ': ' . $problemlist['question_name'] . ': ' . $problemlist['difficulty'] . '</a><br>';
-                    }
+                        ?>
+                        <tr  onclick="redirect(<?=$problemlist['question_id']?>)" >
 
+                        <td ><?= $i++ ?>:</td>
+                        <td ><?= $problemlist['question_name'] ?></td>
+                        <td ><?= $problemlist['difficulty'] ?></td>
+                            <td style="background-color: <?php
+                            if($problemlist['succeed'==1]){
+                                echo "green";
+                            }else{
+                                echo "red";
+                            }
+
+                            ?>">
+
+                            </td>
+
+
+                        </tr>
+
+                        <?php
+                    }
+                    ?>
+
+
+                        </tbody>
+
+                    </table>
+
+
+
+
+                    <?php
                 } else {
                     ?>
                     vous n'avez encore jamais essayer de resoudre un de nos problèmes
@@ -73,6 +114,8 @@ ob_start();
                     <?php
                 }
                 ?>
+
+
 
             </div>
 
